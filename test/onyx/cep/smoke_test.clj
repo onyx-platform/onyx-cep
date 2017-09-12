@@ -88,7 +88,7 @@
         [{:window/id :collect-segments
           :window/task :identity
           :window/type :global
-          :window/aggregation [:onyx.windowing.cep-aggregation/pattern-matcher :age]
+          :window/aggregation [:onyx.cep.pattern-matcher/pattern-matcher :age]
           :cep/pattern-sequence
           {:pattern-sequence/name "test"
            :pattern-sequence/patterns
