@@ -6,4 +6,4 @@
   :dependencies [[org.clojure/clojure "1.9.0-alpha17"]
                  [org.onyxplatform/onyx "0.11.0-SNAPSHOT"]
                  [org.onyxplatform/metamorphic "0.1.0-SNAPSHOT"]]
-  :resource-paths ["test-resources/"])
+  :profiles {:dev {:resource-paths ["test-resources/"]}})

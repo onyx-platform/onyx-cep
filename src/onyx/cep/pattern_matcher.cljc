@@ -1,5 +1,17 @@
 (ns onyx.cep.pattern-matcher
-  (:require [onyx-cep.runtime :as rt]))
+  (:require [clojure.edn :as edn]
+            [metamorphic.runtime :as rt]
+            [taoensso.nippy :as nippy]))
+
+(nippy/extend-freeze
+ clojure.lang.Atom ::atom
+ [x data-output]
+ (.writeUTF data-output (pr-str @x)))
+
+(nippy/extend-thaw
+ ::atom
+ [data-input]
+ (atom (edn/read-string (.readUTF data-input))))
 
 (def durable-ks [:pending-states :match-buffer :matches :timed-out-matches])
 
