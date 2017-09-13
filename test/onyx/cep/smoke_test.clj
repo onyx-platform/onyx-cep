@@ -1,4 +1,4 @@
-(ns onyx-cep.smoke-test
+(ns onyx.cep.smoke-test
   (:require [clojure.test :refer [deftest is]]
             [clojure.core.async :refer [chan >!! <!! close! sliding-buffer]]
             [onyx.cep.pattern-matcher]
@@ -30,9 +30,9 @@
 
 (defn update-atom! [event window trigger 
                     {:keys [lower-bound upper-bound event-type] :as opts} 
-                    extent-state]
-  (when-not (empty? (:matches extent-state)) 
-    (swap! test-state conj (:matches extent-state))))
+                    {:keys [matches]}]
+  (when-not (empty? matches) 
+    (swap! test-state conj matches)))
 
 (def in-chan (atom nil))
 (def in-buffer (atom nil))
