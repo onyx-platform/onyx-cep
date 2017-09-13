@@ -7,7 +7,7 @@
  {:zookeeper/address "127.0.0.1:2188"
   :onyx.peer/job-scheduler :onyx.job-scheduler/greedy
   :onyx.peer/storage :zookeeper
-  :onyx.peer/state-store-impl :lmdb
+  :onyx.peer/state-store-impl :memory
   :onyx.peer/coordinator-barrier-period-ms 1000
   :onyx.peer/subscriber-liveness-timeout-ms 10000
   :onyx.peer/publisher-liveness-timeout-ms 10000
